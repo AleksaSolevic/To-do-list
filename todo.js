@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     function editItem(id) {
         var _a;
-        var task = prompt("Edit task:", (_a = list.find(function (todo) { return todo.id === id; })) === null || _a === void 0 ? void 0 : _a.task);
+        var task = prompt("Edit your task:", (_a = list.find(function (todo) { return todo.id === id; })) === null || _a === void 0 ? void 0 : _a.task);
         if (task === null || task === void 0 ? void 0 : task.trim()) {
             list = list.map(function (todo) { return (todo.id === id ? __assign(__assign({}, todo), { task: task.trim() }) : todo); });
             saveAndRender();

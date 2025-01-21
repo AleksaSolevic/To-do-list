@@ -68,7 +68,7 @@ function renderTodos() {
     }
 
     function editItem(id: number) {
-        const task = prompt("Edit task:", list.find(todo => todo.id === id)?.task);
+        const task = prompt("Edit your task:", list.find(todo => todo.id === id)?.task);
         if (task?.trim()) {
             list = list.map(todo => (todo.id === id ? { ...todo, task: task.trim() } : todo));
             saveAndRender();
