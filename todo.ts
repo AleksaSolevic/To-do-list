@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   addBtn.addEventListener('click', addItem);
-  // deleteAllBtn.addEventListener('click', deleteAllItems);
+  deleteAllBtn.addEventListener('click', deleteAllItems);
   input.addEventListener('keypress', (e) => e.key === "Enter" && addItem());
 
   function addItem() {
@@ -52,11 +52,41 @@ function renderTodos() {
           </div>
       `;
 
+      li.querySelector("input")!.addEventListener("change", () => toggleComplete(todo.id));
+      li.querySelector(".edit")!.addEventListener("click", () => editItem(todo.id));
+      li.querySelector(".delete")!.addEventListener("click", () => deleteItem(todo.id));
+
       todoList.appendChild(li);
   });
 
+  deleteAllBtn.classList.toggle("hidden", list.length === 0);
 }
 
-  
+  function toggleComplete(id: number) {
+        list = list.map(todo => todo.id === id ? { ...todo, complete: !todo.complete } : todo);
+        saveAndRender();
+    }
+
+    function editItem(id: number) {
+        const task = prompt("Edit task:", list.find(todo => todo.id === id)?.task);
+        if (task?.trim()) {
+            list = list.map(todo => (todo.id === id ? { ...todo, task: task.trim() } : todo));
+            saveAndRender();
+        }
+    }
+
+    function deleteItem(id: number) {
+        list = list.filter(todo => todo.id !== id);
+        saveAndRender();
+    }
+
+    function deleteAllItems() {
+        if (confirm("Are you sure you want to clear all tasks?")) {
+            list = [];
+            saveAndRender();
+        }
+    }
+
+    renderTodos();
   
 });
