@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",    // Where compiled JavaScript files go
+    "rootDir": "./src",    // Where TypeScript files are located
+    "target": "ES6",       // JavaScript version
+    "module": "ES6",
+    "strict": true
+  },
+  "include": ["src/**/*"], // Include all .ts files in src/
+  "exclude": ["node_modules"] // Ignore dependencies
+}

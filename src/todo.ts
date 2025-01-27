@@ -24,6 +24,23 @@ document.addEventListener("DOMContentLoaded", () => {
           alert("Please enter a task!");
           return;
       }
+      if (list.length >= 10)
+        {
+          alert("You can only have 10 tasks at a time!");
+          return;
+        }
+      if (task.length < 3)
+      {
+            alert("Task must be at least 3 characters long!");
+            return;
+      }
+      const words = task.split(/\s+/);
+
+      const maxWordLength = 20;
+      if (words.some(word => word.length > maxWordLength)) {
+          alert(`Each word should not exceed ${maxWordLength} characters!`);
+          return;
+      }
 
       list.push({ id: id++, task, complete: false });
       input.value = "";
@@ -68,7 +85,8 @@ function renderTodos() {
     }
 
     function editItem(id: number) {
-        const task = prompt("Edit your task:", list.find(todo => todo.id === id)?.task);
+        const filteredTodos = list.filter(todo => todo.id === id);
+        const task = prompt("Edit your task:", filteredTodos.length ? filteredTodos[0].task : "");
         if (task?.trim()) {
             list = list.map(todo => (todo.id === id ? { ...todo, task: task.trim() } : todo));
             saveAndRender();
