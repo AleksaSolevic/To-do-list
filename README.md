@@ -1,4 +1,5 @@
-# To-do-list READme
+# u05 Todolist i Typescript
+[🔗 Live deployed Webshop site](/)
 
 # Todo List App
 
@@ -15,8 +16,8 @@ This is a simple and easy-to-use web-based Todo List application built with Type
 
 ## Technologies Used
 
-- HTML: For structure.
-- CSS: For styling.
+- HTML: For semantic structure.
+- CSS: For styling and responsive design.
 - TypeScript: For adding type safety and structure.
 - LocalStorage: For saving tasks between sessions.
 
