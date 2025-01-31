@@ -1,5 +1,5 @@
 # u05 Todolist i Typescript
-[🔗 Live deployed Webshop site](/)
+[🔗 Live deployed Webshop site](https://u05-todo-typescript.netlify.app/)
 
 # Todo List App
 
